@@ -1,0 +1,37 @@
+
+  <div>
+  <div class="row" style="text-align: left;">
+    <div class="col">
+
+      <div>
+        {{indice+1}}:  {{empleadoLista.nombre}}, {{empleadoLista.apellido}}, {{empleadoLista.cargo}}, {{empleadoLista.salario}} €
+
+        <!-- (Queryparams)->se mete en el vinculo y se le añade una accion en este caso 0 y 1, dependiendo de si se quiere modificar o eliminar-->
+        <a [routerLink]="['/actualiza', indice]" [queryParams]="{accion:'1'}">
+
+          Actualiza
+
+     </a>
+
+    <!-- (&nbsp)->no es la manera más correcta pero da 2 espacios en blanco entre links-->
+     &nbsp; &nbsp;
+
+     <a [routerLink]="['/actualiza', indice]" [queryParams]="{accion:'2'}">
+
+      Elimina
+
+ </a>
+
+      </div>
+
+      <app-caracteristicas-empleados (caracteristicasEmpleados)="agregarcaracteristica($event)"></app-caracteristicas-empleados>
+<ul style="list-style: none;">
+  <li *ngFor="let caracteristica of arrayCaracteristicas ">{{caracteristica}}</li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+
+
